@@ -3,10 +3,7 @@ const feedRoutes = require('./routes/feed');
 const commentRoutes = require('./routes/comment');
 const bodyParser = require('body-parser');
 const app = express();
-<<<<<<< HEAD
-=======
 const mongoose = require('mongoose');
->>>>>>> 4887e5838e28c18c56da18d4dcccb997ebbfcc3c
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -18,10 +15,7 @@ app.use((req, res, next) => {
 app.use('/feed', feedRoutes);
 app.use('/comment', commentRoutes);
 
-<<<<<<< HEAD
-=======
-mongoose.connect('');
->>>>>>> 4887e5838e28c18c56da18d4dcccb997ebbfcc3c
-app.listen(3000, () => {
-    console.log('App listening on port 3000!');
-});
+mongoose.connect('mongodb+srv://testuser:V6Akqm9GpkNMcCpA@cluster0-k2j8j.mongodb.net/messages?retryWrites=true&w=majority',{ useNewUrlParser: true ,useUnifiedTopology: true,}).then(result => {
+    app.listen(3000);
+}).catch(err => console.log(err));
+
